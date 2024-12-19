@@ -8,6 +8,9 @@ public class Clase10 {
     Ejercicio1(leer);
     Ejercicio2(leer);
     Ejercicio3(leer);
+    Ejercicio4(leer);
+    Ejercicio5(leer);
+    // Complementario1(,leer);
     leer.close();
   }
 
@@ -94,7 +97,16 @@ public class Clase10 {
   // importante utilizar únicamente las herramientas
   // aprendidas hasta el momento, sin emplear bucles en el proceso.
   public static void Ejercicio4(Scanner leer) {
+    int[] arr = { 4, 6, 9 };
+    Scanner scn = new Scanner(System.in);
+    System.out.println("Ingrese un número entero: ");
+    int numero = scn.nextInt();
 
+    if (arr[0] == numero || arr[1] == numero || arr[2] == numero) {
+      System.out.println("El número está presente dentro del array");
+    } else {
+      System.out.println("El número no se encuentra en el array");
+    }
   }
 
   // Actividad: Copiando elementos
@@ -108,7 +120,81 @@ public class Clase10 {
   // Es esencial emplear exclusivamente las herramientas aprendidas hasta el
   // momento, evitando el uso de bucles en el proceso.
   public static void Ejercicio5(Scanner leer) {
+    int[] original = { 19, 07, 1997 };
+    int[] agrandado = new int[original.length + 2];
+
+    System.out.println("El arreglo original es: [ " + original[0] + ", " + original[1] + ", " + original[2] + " ]");
+
+    agrandado[0] = original[0];
+    agrandado[1] = original[1];
+    agrandado[2] = original[2];
+
+    try {
+      System.out.println("Ingrese dos valores que seran agregados al arreglo original: ");
+      System.out.print(" Numero 1 > ");
+      agrandado[3] = leer.nextInt();
+      System.out.print(" Numero 2 > ");
+      agrandado[4] = leer.nextInt();
+
+      System.out.println("El arreglo agrandado es: [ " + agrandado[0] + ", " + agrandado[1] + ", " + agrandado[2] + ", "
+          + agrandado[3] + ", " + agrandado[4] + " ]");
+    } catch (Exception e) {
+      System.out.println("Hiciste algo mal, el programa exploto!");
+    }
+  }
+
+  // Actividad: Ejercicios Complementarios
+  // Generando un número aleatorio entre dos límites
+  // Escribe un programa en el que se cree una variable de tipo array que contenga
+  // seis elementos de tipo entero. El programa debe contar la cantidad
+  // de elementos pares presentes en el array y mostrar el resultado por consola
+  // utilizando solo las herramientas aprendidas hasta el momento.
+  public static void Complementario1(Scanner leer) {
+    try {
+      int[] arreglo = new int[6];
+      System.out.println("Ingrese el limite superior");
+      int limiteSup = leer.nextInt();
+      System.out.println("Ingrese el limite inferior");
+      int limiteInf = leer.nextInt();
+      int contadorPares = 0;
+
+      for (int i = 0; i < arreglo.length; i++) {
+        arreglo[i] = (int) (Math.random() * (limiteSup - limiteInf + 1) + limiteInf);
+        System.out.println(arreglo[i]);
+        if (arreglo[i] % 2 == 0) {
+          contadorPares++;
+        }
+      }
+      System.out.println("La cantidad de número que son pares es: " + contadorPares);
+    } catch (InputMismatchException e) {
+      System.out.println("Error, el valor ingresado no es valido");
+    } catch (Exception e) {
+      System.out.println("ERROR!!!");
+    }
 
   }
 
+  // Sumando elementos en posiciones pares
+  // Desarrolla un programa que cree un array de tamaño 5 que almacene números
+  // enteros. Luego, suma los elementos ubicados en las posiciones pares del
+  // array (es decir, las posiciones 0, 2 y 4) y muestra por consola el resultado
+  // de la suma. Utiliza exclusivamente las herramientas aprendidas hasta el
+  // momento.
+  public static void Complementario2(Scanner leer) {
+
+  }
+
+  // Ordenando Nombres Alfabéticamente
+  // Desarrolla un programa que pida al usuario ingresar 4 nombres. Estos nombres
+  // serán ordenados alfabéticamente y posteriormente impresos en la consola.
+  // Es esencial emplear exclusivamente las herramientas aprendidas hasta el
+  // momento.
+  public static void Complementario3(Scanner leer) {
+    String[] nombres = new String[4];
+    System.out.println("Ingrese nombres:");
+    for (int i = 0; i < nombres.length; i++) {
+      System.out.print("Nombre " + i + " > ");
+      nombres[i] = leer.nextLine();
+    }
+  }
 }
